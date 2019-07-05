@@ -1,0 +1,63 @@
+<div class="header-topnav mat-elevation-z2">
+    <div class="container">
+        <div class="topnav">
+            <!-- App Logo -->
+            <div class="topbar-branding">
+                <img src="assets/images/logo.png" alt="" class="app-logo">
+            </div>
+
+            <ul class="menu" *ngIf="!layoutConf.isMobile">
+                <li>
+                    <div routerLinkActive="open">
+                        <a matRipple routerLink="/">
+                            <mat-icon>dashboard</mat-icon>
+                            Dashboard
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a matRipple routerLink="/tabs">
+                            <mat-icon>bookmark</mat-icon>
+                            Tabs
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <span fxFlex></span>
+            <!-- End Navigation -->
+
+            <!-- Language Switcher -->
+            <mat-select
+                    *ngIf="!layoutConf.isMobile"
+                    placeholder=""
+                    id="langToggle"
+                    [style.width]="'auto'"
+                    name="currentLang"
+                    [(ngModel)]="currentLang"
+                    (selectionChange)="setLang()"
+                    class="topbar-button-right">
+                <mat-option
+                        *ngFor="let lang of availableLangs"
+                        [value]="lang.code" ngDefaultControl>{{ lang.name }}</mat-option>
+            </mat-select>
+            <!-- Theme Switcher -->
+
+            <!-- Top left user menu -->
+            <button mat-icon-button [matMenuTriggerFor]="accountMenu" class="topbar-button-right mr-1 img-button">
+                <img src="assets/images/face-7.jpg" alt="">
+            </button>
+            <mat-menu #accountMenu="matMenu">
+            </mat-menu>
+            <!-- Mobile screen menu toggle -->
+            <button
+                    mat-icon-button
+                    class="mr-1"
+                    (click)="toggleSidenav()"
+                    *ngIf="layoutConf.isMobile">
+                <mat-icon>menu</mat-icon>
+            </button>
+
+        </div>
+    </div>
+</div>

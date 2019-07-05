@@ -1,0 +1,34 @@
+<div class="sidenav-hold">
+    <div class="icon-menu mb-1" *ngIf="hasIconTypeMenuItem">
+        <!-- Icon menu separator -->
+        <div class="mb-1 nav-item-sep">
+            <mat-divider [ngStyle]="{margin: '0 -24px'}"></mat-divider>
+            <span class="text-muted icon-menu-title">{{iconTypeMenuTitle}}</span>
+        </div>
+        <!-- Icon menu items -->
+        <div class="icon-menu-item" *ngFor="let item of menuItems">
+            <button *ngIf="!item.disabled && item.type === 'icon'" mat-raised-button [matTooltip]="item.tooltip"
+                    routerLink="/{{item.state}}"
+                    routerLinkActive="mat-bg-primary">
+                <mat-icon>{{item.icon}}</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <ul appDropdown class="sidenav">
+        <li routerLinkActive="open">
+            <div class="lvl1">
+                <a routerLink="/"  matRipple>
+                    <mat-icon>dashboard</mat-icon>
+                    <span class="item-name lvl1">Dashboard</span>
+                    <span fxFlex></span>
+                </a>
+                <a routerLink="/tabs"  matRipple>
+                    <mat-icon>bookmark</mat-icon>
+                    <span class="item-name lvl1">Tabs</span>
+                    <span fxFlex></span>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>

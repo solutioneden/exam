@@ -1,0 +1,125 @@
+<div class="page-layout overflow-hidden pb-8" style="margin-top: 38px">
+    <div class="content">
+        <mat-tab-group selectedIndex="2">
+            <mat-tab label="Dynamic Creative Form"></mat-tab>
+            <mat-tab label="Dynamic Creative List"></mat-tab>
+            <mat-tab label="Master Data">
+                <mat-vertical-stepper>
+                    <mat-step>
+                        <ng-template matStepLabel>Master Data Setup</ng-template>
+                    </mat-step>
+                    <mat-step>
+                        <ng-template matStepLabel>Master Data Mapping</ng-template>
+                    </mat-step>
+                </mat-vertical-stepper>
+            </mat-tab>
+            <mat-tab label="Inventory">
+                <mat-vertical-stepper>
+                    <mat-step>
+                        <ng-template matStepLabel>Inventory Setup</ng-template>
+                    </mat-step>
+                    <mat-step>
+                        <ng-template matStepLabel>Inventory Mapping</ng-template>
+                        <div fxLayout="row wrap">
+                            <div fxFlex="70" fxFlex.lt-sm="100" fxFlex.sm="100">
+                                <div class="text-right">
+                                    <button mat-mini-fab color="primary" class="mr-1">
+                                        <mat-icon>add</mat-icon>
+                                    </button>
+                                    Add Asset
+                                </div>
+                                <br/>
+                                <mat-accordion>
+                                    <mat-expansion-panel expanded="">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                <b>Category: </b>ActivityAnyExploreabSelling.mov
+                                            </mat-panel-title>
+                                            <mat-panel-description>
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <div
+                                                cdkDropList
+                                                #doneList="cdkDropList"
+                                                [cdkDropListData]="done"
+                                                [cdkDropListConnectedTo]="[todoList]"
+                                                class="example-list"
+                                                (cdkDropListDropped)="drop($event)">
+                                            <div class="example-box" *ngFor="let item of done; let i = index" cdkDrag>
+                                                <mat-chip color="accent" selected>
+                                                    <span>{{item}}</span>
+                                                    <mat-icon matChipRemove (click)="removeItem(i)">cancel</mat-icon>
+                                                </mat-chip>
+                                            </div>
+                                        </div>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                <b>Category: </b>ActivityAnyExploreabSelling.mov
+                                            </mat-panel-title>
+                                            <mat-panel-description>
+
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+                            </div>
+                            <div fxFlex="30" fxFlex.lt-sm="100" fxFlex.sm="100">
+                                <mat-card>
+                                    <mat-card-content>
+                                        <h2>Control Panel</h2>
+                                        <mat-accordion>
+                                            <mat-expansion-panel expanded="">
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>
+                                                        Help
+                                                    </mat-panel-title>
+                                                    <mat-panel-description>
+                                                    </mat-panel-description>
+                                                </mat-expansion-panel-header>
+                                                <p>Drag and Drop tags below to assets, or select and use buttons to apply
+                                                    multiple tags to asset to remove</p>
+                                            </mat-expansion-panel>
+                                        </mat-accordion>
+                                        <br/>
+                                        <mat-divider></mat-divider>
+
+                                        <h3>Tags</h3>
+                                        <br/>
+                                        <mat-card>
+                                            <h4>Activity Themes</h4>
+                                            <mat-chip-list>
+                                                <mat-chip color="primary" selected>Helicopter</mat-chip>
+                                                <mat-chip color="accent" selected>Nightlife</mat-chip>
+                                                <mat-chip color="warn" selected>London</mat-chip>
+                                            </mat-chip-list>
+                                        </mat-card>
+                                        <br/>
+                                        <mat-card>
+                                            <h4>Origin</h4>
+                                            <div
+                                                    cdkDropList
+                                                    #todoList="cdkDropList"
+                                                    [cdkDropListData]="todo"
+                                                    [cdkDropListConnectedTo]="[doneList]"
+                                                    class="example-list"
+                                                    (cdkDropListDropped)="drop($event)">
+                                                <div class="example-box" *ngFor="let item of todo" cdkDrag>
+                                                    <mat-chip color="primary">
+                                                        <span>{{item}}</span>
+                                                    </mat-chip>
+                                                </div>
+                                            </div>
+                                        </mat-card>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </div>
+                    </mat-step>
+                </mat-vertical-stepper>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+</div>

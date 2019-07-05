@@ -1,0 +1,113 @@
+<div fxLayout="row wrap" style="margin-top: 30px;">
+    <div fxFlex="80" fxFlex.lt-sm="100" fxFlex.sm="100">
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" [@animate]="{value:'*',params:{scale:'.9',delay:'300ms'}}">
+                <mat-card>
+                    <mat-card-title fxLayoutAlign="start center">
+                        <small class="text-muted">Sales</small>
+                        <span fxFlex></span>
+                    </mat-card-title>
+                    <mat-card-content>
+                        <h2 class="m-0 font-normal">£102,458</h2>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" [@animate]="{value:'*',params:{scale:'.9',delay:'300ms'}}">
+                <mat-card>
+                    <mat-card-title fxLayoutAlign="start center">
+                        <small class="text-muted">Spend</small>
+                        <span fxFlex></span>
+                    </mat-card-title>
+                    <mat-card-content>
+                        <h2 class="m-0 font-normal">£3M</h2>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" [@animate]="{value:'*',params:{scale:'.9',delay:'300ms'}}">
+                <mat-card>
+                    <mat-card-title fxLayoutAlign="start center">
+                        <small class="text-muted">ROI</small>
+                        <span fxFlex></span>
+                    </mat-card-title>
+                    <mat-card-content>
+                        <h2 class="m-0 font-normal">1.2</h2>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <mat-tab-group mat-align-tabs="center" selectedIndex="1">
+            <mat-tab label="Discover"></mat-tab>
+            <mat-tab label="Plan"></mat-tab>
+            <mat-tab label="Track"></mat-tab>
+        </mat-tab-group>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100">
+                <div echarts [options]="lineOptions" style="height: 382px"></div>
+                <div class="m-24" style="background: white">
+                    <mat-divider></mat-divider>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100">
+                <div echarts [options]="barOptions" style="height: 382px"></div>
+                <div class="m-24">
+                    <mat-divider></mat-divider>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div fxFlex="20" fxFlex.lt-sm="100" fxFlex.sm="100">
+        <div class="pb-1 mb-1 border-bottom">
+            <h6 class="title text-muted">Select Plan</h6>
+            <div class="mb-1">
+                <mat-checkbox>Plan 2019 High</mat-checkbox><br/>
+                <mat-checkbox>Plan 2019 Low</mat-checkbox>
+            </div>
+            <div class="mb-1">
+                <button mat-raised-button color="primary">
+                    <mat-icon>add</mat-icon> Add Plan
+                </button>
+            </div>
+        </div>
+        <br/>
+        <div class="pb-1 mb-1 border-bottom">
+            <h6 class="title text-muted">Select Date</h6>
+            <div class="mb-1">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="fromDate" placeholder="From">
+                    <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+                    <mat-datepicker #fromDate></mat-datepicker>
+                </mat-form-field>
+                <br/>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="toDate" placeholder="To">
+                    <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+                    <mat-datepicker #toDate></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <br/>
+        <div class="pb-1 mb-1 border-bottom">
+            <h6 class="title text-muted">Select KPI</h6>
+            <div class="mb-1">
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">Sales</mat-radio-button>
+                    <br/>
+                    <mat-radio-button value="2">Traffic</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <br/>
+        <div class="pb-1 mb-1 border-bottom text-right">
+            <button mat-raised-button color="warn">
+                Apply
+            </button>
+        </div>
+    </div>
+</div>
